@@ -36,7 +36,7 @@ angular.module 'appuu'
     ResourseManager.set_collections($scope, asociated_collections).then ->
 
       ResourseManager.set_scope($scope).then ->
-        $http.get('/mis/operaciones/compras/ultimas_condiciones').then (resp) ->
+        $http.get($rootScope.rootPath + '/mis/operaciones/compras/ultimas_condiciones').then (resp) ->
             $scope.ultimas_condiciones = resp.data
             console.log resp.data
             $scope.modo_pago = $scope.ultimas_condiciones[0].tipo

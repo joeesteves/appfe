@@ -2,7 +2,7 @@ angular.module 'appuu'
 .config ($routeProvider) ->
   $routeProvider
     .when '/',
-      templateUrl: '<%= asset_path("fw/sesiones/index") %>'
+      templateUrl: '/views/fw/sesiones/index.html'
       controller: 'SesionCtrl'
     .otherwise
       redirectTo: '/'

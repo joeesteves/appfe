@@ -8,7 +8,7 @@ div.panel.panel-default.col-md-12
       div.input-group.input-group-lg
         span(class='input-group-addon')
           span.glyphicon.glyphicon-lock
-        input(class='form-control' name='password' ng-model='credencial.password' type='password' placeholder='password' required= true pattern='.{8}')
+        input(class='form-control' name='password' ng-model='credencial.password' type='password' placeholder='password' required= true pattern='.{8,}')
       br
       button(class='btn btn-primary btn-lg sesion-btn' type='submit' ng-disabled='credencialForm.$invalid') Iniciar Sesion
       div.sesion-separador

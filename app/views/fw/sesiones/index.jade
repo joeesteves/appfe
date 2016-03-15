@@ -5,7 +5,7 @@ div.sesion-fondo
       img(src='/images/logo.png')
     au-iniciar-sesion(ng-show='pantalla == "principal"')
     //agrego esta linea porque sino al cargar la pagina se veian un micro segundo los paneles
-    div(ng-class='{oculto= pantalla == "principal"}')
+    div(ng-class='{oculto: pantalla == "principal"}')
       au-nueva-cuenta(ng-show='pantalla == "nueva_cuenta"')
       au-recordar-clave(ng-show='pantalla == "recordar_clave"')
       au-solicitud-enviada(ng-show='pantalla == "solicitud_enviada"')

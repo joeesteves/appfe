@@ -1,6 +1,6 @@
 angular.module 'appuu'
-.controller 'PerfilCtrl', ($scope, $location, $http, ResourseManager) ->
-  $http.get('/mi/perfil').then (resp) ->
+.controller 'PerfilCtrl', ($rootScope, $scope, $location, $http, ResourseManager) ->
+  $http.get($rootScope.rootPath + 'mi/perfil').then (resp) ->
     $scope.obj = resp.data
   form = ResourseManager.form('ba/usuarios')
   index_url = '/'
@@ -9,9 +9,8 @@ angular.module 'appuu'
   .then (resp) ->
     $scope.fields = resp.data
 
-
   $scope.guardar = ->
-    $http.post('/mi/perfil/update', $scope.obj )
+    $http.post($rootScope.rootPath + 'mi/perfil/update', $scope.obj )
     .then () ->
       $location.path('/')
     .catch () ->

@@ -1,14 +1,14 @@
 angular.module 'appuu'
-.factory 'ResourseManager', ($q, $http, $resource, $location, $routeParams, Comunicacion, FichaProvider) ->
+.factory 'ResourseManager', ($rootScope, $q, $http, $resource, $location, $routeParams, Comunicacion, FichaProvider) ->
   form: ->
-    $http.post('/fw/traductor/form', {location: @.underscored_klass()})
+    $http.post($rootScope.rootPath + 'fw/traductor/form', {location: @.underscored_klass()})
   ficha: ->
-    $http.post('/fw/traductor/ficha', {location: @.underscored_klass()})
+    $http.post($rootScope.rootPath + 'fw/traductor/ficha', {location: @.underscored_klass()})
   resource: ->
     $resource(@.underscored_klass() + "/:id", {id: "@id"}, {update: {method: "PUT"}, new: {method: "GET", url: @.underscored_klass() + "/new" }})
   underscored_klass: (args)->
     loc = args || $location.path()
-    loc.match(/\/?(\w+\/\w+(?:\/(?!new|edit)[a-z]+)?)/)[1]
+    $rootScope.rootPath + loc.match(/\/?(\w+\/\w+(?:\/(?!new|edit)[a-z]+)?)/)[1]
   get_element: (args) ->
     @.underscored_klass(args).match(/(\w+)$/)[1]
 

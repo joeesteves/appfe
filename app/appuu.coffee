@@ -1,10 +1,9 @@
 angular.module 'appuu', ['ngRoute', 'ngSanitize', 'ngResource', 'ngAnimate', 'angular-loading-bar','ng-token-auth', 'hc.marked','localytics.directives']
 .config ($authProvider) ->
   $authProvider.configure
-    apiUrl: ''
-  # .config ($httpProvider) ->
-  # $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+    apiUrl: 'http://localhost:3000/'
 .run ($rootScope, $location, $auth, SessionManager) ->
+  $rootScope.rootPath = 'http://localhost:3000/'
   chequear_sesion = () ->
     $auth.validateUser()
     .then ->

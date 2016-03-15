@@ -30,12 +30,12 @@ gulp.task('coffee', function() {
 });
 
 gulp.task('css', function() {
-  gulp.src('app/styles/*.css')
-  .pipe(gulp.dest('dist/styles'))
+  gulp.src('app/styles/**/*.css')
+  .pipe(gulp.dest('dist/styles/'))
 });
 
 gulp.task('sass', function() {
-  gulp.src('app/styles/*.scss')
+  gulp.src('app/styles/**/*.scss')
   .pipe(sass().on('error', sass.logError))
   .pipe(gulp.dest('dist/styles'))
 });
@@ -53,13 +53,11 @@ gulp.task('manual_vendor',function(){
 
 gulp.task('injects', function () {
   var bfiles = []
-  console.log(bowerFiles())
   bowerFiles().forEach(function(file){
-    console.log(file.match(/\/([\w,\-,\_]+\.(min.)?(?:js|css|jquery.js))/)[1])
     bfiles.push('dist/vendor/' + file.match(/\/([\w,\-,\_]+\.(min.)?(?:js|css|jquery.js))/)[1])
   });
   var target = gulp.src('app/index.jade'),
-    sources = gulp.src(['./dist/**/*.js','!./dist/vendor/*.js','!./dist/node_modules/**/*.js','./dist/styles/*.css'], {read: false});
+    sources = gulp.src(['./dist/**/*.js','!./dist/vendor/*.js','!./dist/node_modules/**/*.js','./dist/styles/**/*.css'], {read: false});
   return target.pipe(inject(sources, {ignorePath: 'dist'}))
     .pipe(inject(gulp.src(bfiles, {read: false}), {name: 'bower', ignorePath: 'dist'}))
     .pipe(gulp.dest('app/'));

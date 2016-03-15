@@ -9,7 +9,7 @@ angular.module('appuu')
   templateUrl: '/views/fw/dialogos/condiciones.html'
   controller: ($scope, $http) ->
     $scope.get_condiciones = ->
-      $http.get('/mis/operaciones/compras/posibles_condiciones').then (resp) ->
+      $http.get($rootScope.rootPath + 'mis/operaciones/compras/posibles_condiciones').then (resp) ->
         $scope.posibles_condiciones = resp.data
     $scope.set_condicion = (cuenta) ->
       $scope.op.condiciones[0] = {cuenta_id: cuenta.id, forma: '0'}
