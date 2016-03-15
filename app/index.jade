@@ -1,0 +1,69 @@
+html(ng-app='appuu')
+head
+  title Last Mile 
+  //- inject:css
+  link(rel="stylesheet", href="/styles/application.css")
+  //- endinject
+  //- bower:css
+  link(rel="stylesheet", href="/vendor/loading-bar.css")
+  link(rel="stylesheet", href="/vendor/chosen.css")
+  link(rel="stylesheet", href="/vendor/bootstrap-theme.min.css")
+  link(rel="stylesheet", href="/vendor/bootstrap.min.css")
+  link(rel="stylesheet", href="/vendor/chosen-spinner.css")
+  //- endinject
+  body
+    //- bower:js
+    script(src="/vendor/angular.js")
+    script(src="/vendor/jquery.js")
+    script(src="/vendor/angular-route.js")
+    script(src="/vendor/angular-resource.js")
+    script(src="/vendor/angular-cookie.js")
+    script(src="/vendor/marked.js")
+    script(src="/vendor/angular-animate.js")
+    script(src="/vendor/ng-token-auth.js")
+    script(src="/vendor/loading-bar.js")
+    script(src="/vendor/angular-sanitize.js")
+    script(src="/vendor/chosen.jquery.js")
+    script(src="/vendor/angular-marked.js")
+    script(src="/vendor/angular-chosen.min.js")
+    //- endinject
+    //- inject:js
+    script(src="/appuu.js")
+    script(src="/controllers/mi/archivo.js")
+    script(src="/controllers/mi/corcho.js")
+    script(src="/controllers/mi/escritorio.js")
+    script(src="/controllers/mi/perfil.js")
+    script(src="/directives/fw/au-dialogos.js")
+    script(src="/directives/fw/au-main.js")
+    script(src="/directives/fw/au-mask.js")
+    script(src="/directives/fw/au-notificaciones.js")
+    script(src="/directives/fw/au-operaciones.js")
+    script(src="/directives/fw/au-resources.js")
+    script(src="/directives/fw/au-sesiones.js")
+    script(src="/directives/fw/utiles.js")
+    script(src="/routes/ba/usuarios.js")
+    script(src="/routes/fw/sesiones.js")
+    script(src="/routes/mi/escritorios.js")
+    script(src="/routes/mi/perfil.js")
+    script(src="/routes/op/operaciones.js")
+    script(src="/routes/zz/ymis.js")
+    script(src="/routes/zz/zresourses.js")
+    script(src="/services/fw/calculadora.js")
+    script(src="/services/fw/comunicacion.js")
+    script(src="/services/fw/content-provider.js")
+    script(src="/services/fw/resourse-manager.js")
+    script(src="/services/fw/session-manager.js")
+    script(src="/services/fw/tarjetas-manager.js")
+    script(src="/controllers/ba/usuarios/main-ctrl.js")
+    script(src="/controllers/fw/resourses/index-ctrl.js")
+    script(src="/controllers/fw/resourses/new-ctrl.js")
+    script(src="/controllers/fw/resourses/update-ctrl.js")
+    script(src="/controllers/fw/sesiones/cerrar-ctrl.js")
+    script(src="/controllers/fw/sesiones/main-ctrl.js")
+    script(src="/controllers/mis/operaciones/operaciones-ctrl.js")
+    //- endinject
+  
+    au-nav-bar(ng-if='logged')
+    ng-view
+    au-notifica-errores
+    au-dialogo-sesiones

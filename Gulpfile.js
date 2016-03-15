@@ -53,8 +53,10 @@ gulp.task('manual_vendor',function(){
 
 gulp.task('injects', function () {
   var bfiles = []
+  console.log(bowerFiles())
   bowerFiles().forEach(function(file){
-    bfiles.push('dist/vendor/' + file.match(/\/([\w,\-,\_]+\.(min.)?(?:js|css))/)[1])
+    console.log(file.match(/\/([\w,\-,\_]+\.(min.)?(?:js|css|jquery.js))/)[1])
+    bfiles.push('dist/vendor/' + file.match(/\/([\w,\-,\_]+\.(min.)?(?:js|css|jquery.js))/)[1])
   });
   var target = gulp.src('app/index.jade'),
     sources = gulp.src(['./dist/**/*.js','!./dist/vendor/*.js','!./dist/node_modules/**/*.js','./dist/styles/*.css'], {read: false});

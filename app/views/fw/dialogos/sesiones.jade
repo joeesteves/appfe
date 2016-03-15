@@ -7,4 +7,4 @@ div(class='modal fade' id='dialogoSesion' tabindex='-1')
         h4(class='modal-title' style='text-align=center')  Mis Empresas
         div.modal-body.alert.alert-success
           div.list-group
-            a(class='list-group-item list-group-item-info' ng-repeat='empresa in rs_empresas | orderBy= nombre | filter=search | limitTo=10' ng-click='cambiar_empresa(empresa.id)' data-dismiss='modal') {{ empresa.nombre }}
+            a(class='list-group-item list-group-item-info' ng-repeat='empresa in rs_empresas | orderBy: nombre | filter:search | limitTo:10' ng-click='cambiar_empresa(empresa.id)' data-dismiss='modal') {{ empresa.nombre }}
