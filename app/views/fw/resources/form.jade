@@ -1,0 +1,13 @@
+div.container
+  form(class='form-horizontal' ng-submit='guardar()')
+    div(class='form-group' ng-repeat='(kv) in fields')
+      label(class='col-sm-2 control-label') {{ v.label }}
+      div(class='col-sm-10' ng-switch='v.input.type')
+        select(class='form-control' ng-switch-when='select' ng-model='obj[k]' ng-options='item.id as item.nombre for item in v.input.data')
+          option(value='' 'disabled'=true) {{v.input.placeholder}}
+        input(class='form-control' ng-switch-when='checkbox' type='{{v.input.type}}' ng-model='obj[k]' ng-true-value='1' ng-false-value='0')
+        textarea(class='form-control' ng-switch-when='textarea' ng-model='obj[k]' rows='{{v.input.rows}}' placeholder='{{v.input.placeholder}}')
+        input(class='form-control' ng-switch-default=true type='{{v.input.type}}' ng-model='obj[k]' placeholder='{{v.input.placeholder}}')
+    div.form-group
+      div(class='col-sm-offset-2 col-sm-10')
+        input(class='btn btn-primary' type='submit')

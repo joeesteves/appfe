@@ -1,0 +1,10 @@
+div.navbar.navbar-default.navbar-static-top
+  div.container-fluid
+    a(class='navbar-brand' tabindex='-1' href= '#/')
+      img(src='/images/bower-logo.png' style='height:"100%"')
+    a(class='navbar-brand' tabindex='-1' href= '#/')
+      App2U en
+    a(class= 'navbar-brand' tabindex='-1' data-toggle='modal' data-target='#dialogoSesion') {{ '#' + rs_empresa_actual.nombre }}
+    ul.nav.navbar-nav.navbar-right
+      li(ng-repeat='item in opciones_de_menu' ng-class="{'active'= op_activa == '{{item.toLowerCase()}}' }")
+        a(tabindex='-1' href='#/{{item.toLowerCase()}}') {{ item.split('/').pop() }}
